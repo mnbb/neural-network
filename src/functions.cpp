@@ -1,10 +1,11 @@
-#include <stdlib.h>
-#include <math.h>
+#include <stdlib>
+#include <math>
 
 const float FINAL = 2.0;
 
 float zigmoid(int x) {
-  return x/(0.5 + abs(x));
+  // return x/(0.5 + abs(x));
+  return 1/(1+std::exp(-z));
 };
 
 double cost(float** values) {

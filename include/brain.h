@@ -1,16 +1,27 @@
 
-typedef std::vector<std::vector<float>> Memory;
+typedef std::vector<float*> Memory;
 
 class Brain {
   private:
-  int SIZE_X, SIZE_Y;
+  // sizes represents the quantity of neurons in rows and columns
+  int sizex, sizey;
+  // vector dimensions of input and output
+  int inc, outc;
+  // memory_data stores all values of synapsies
   Memory memory_data;
+  // propagate will move neuron values from one row to next
+  int propagate();
 
   public:
-  Brain(int sizex, int sizey);
+  // constructor sets initial attributes and reserves needed memory to store memory data
+  Brain();
+  // setMemoryData loads previously created memory data
   int setMemoryData();
+  // getMemoryData serializes saved data of memory
   int getMemoryData();
+  // train will tune up values of memory
   int train();
-  int predict();
+  // doPropagation will propagate layer by layer all values
+  float* doPropagation();
 };
 
